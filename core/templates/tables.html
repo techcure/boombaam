@@ -312,12 +312,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <tr>{% for x in data %}
                                 <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
+                                <td>{{x.username}}</td>
+                                <td></td>
                                 <td><a href="#">ottoto@example.com</a></td>
                                 <td><span class="badge bg-gray-lighter text-gray fw-semi-bold">Pending</span></td>
+                                 {% endfor %}
                             </tr>
                             <tr>
                                 <td>2</td>

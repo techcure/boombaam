@@ -1,0 +1,27 @@
+
+{% extends "layouts/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="/static/assets/css/application.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/static/assets/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="utf-8">
+</head>
+
+</body>
+
+{% block content %}
+    <h2>New Post</h2>
+    <div align="center" class="input">
+    <form action="#" method="POST" class="">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    </div>
+{% endblock %}
+<body>
+</html>

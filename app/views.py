@@ -1,14 +1,29 @@
-# -*- encoding: utf-8 -*-
-"""
-License: MIT
-Copyright (c) 2019 - present AppSeed.us
-"""
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
 from django.http import HttpResponse
 from django import template
+from django.shortcuts import render
+from .forms import PostForm
+from .models import Post
+
+from django.contrib import messages
+def post_new(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        #import pdb; pdb.set_trace()
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            # messages= "Saved"
+            messages.success(request, 'Your post has saved Successfully!.')
+        return render(request, 'index.html', {'form': form})
+    else:
+            form = PostForm()
+    # import pdb; pdb.set_trace()
+    return render(request, 'layouts/post_edit.html', {'form':form})
 
 @login_required(login_url="/login/")
 def index(request):

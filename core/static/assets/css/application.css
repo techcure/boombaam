@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+ul {
+    margin: 0 0 9px;
+    color: chartreuse;
+}
+
 @charset "UTF-8";
 @font-face {
   font-family: 'Open Sans';
@@ -1425,7 +1437,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
   line-height: 1.428571429;
-  color: #f8f8f8;
+  color: #fff;
   background-color: #fff;
 }
 
@@ -1439,12 +1451,12 @@ textarea {
 }
 
 a {
-  color: #8ec5fd;
+  color: #ff0099;
   text-decoration: none;
 }
 
 a:hover, a:focus {
-  color: #439efb;
+  color: #1d2b2b;
   text-decoration: underline;
 }
 
@@ -19591,7 +19603,7 @@ svg .title {
 /***********************************/
 .rickshaw_legend {
   background-color: rgba(51, 51, 51, 0.425);
-  color: white;
+  color: red;
 }
 
 html {
@@ -19601,12 +19613,14 @@ html {
 body {
   font-weight: 300;
   padding-bottom: 100px;
-  background-color: #414e60 20%;
+  background-color: #050d15 20%;
   background-image: url(../img/bg-pattern.svg), radial-gradient(farthest-side ellipse at 10% 0, #414e60 20%, #94a3b1);
-  background-image: url(../img/bg-pattern.svg), -webkit-radial-gradient(10% 0, farthest-side ellipse, #414e60 20%, #94a3b1);
+background-image: url(../img/bg-pattern.svg), -webkit-radial-gradient(10% 0, farthest-side ellipse, #148868 20%, #06061d);
   background-image: url(../img/bg-pattern.svg), -moz-radial-gradient(10% 0, farthest-side ellipse, #414e60 20%, #94a3b1);
   background-size: cover;
   background-attachment: fixed, fixed;
+  
+  
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -23400,4 +23414,11 @@ table.table thead .sorting_desc_disabled {
   .col-print-offset-11 {
     margin-left: 91.6666666667%;
   }
+}
+textarea:focus, input:focus {
+    color: #000000;
+}
+
+input, select, textarea{
+    color: #000000;
 }
