@@ -23,6 +23,7 @@ def post_new(request):
     else:
             form = PostForm()
     # import pdb; pdb.set_trace()
+    dat= "gulab"
     return render(request, 'layouts/post_edit.html', {'form':form})
 
 @login_required(login_url="/login/")
