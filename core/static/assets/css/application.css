@@ -1,8 +1,5 @@
 
-
-
-
-
+}
 
 
 ul {
@@ -23421,4 +23418,6 @@ textarea:focus, input:focus {
 
 input, select, textarea{
     color: #000000;
+    border: 2px solid #ccc;
+    border-radius: 4px;
 }

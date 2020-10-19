@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+<form action="{% url 'post_view' %}">
+	<h4 align="center">----------- User's Post ------------</h4>
+
+  {% csrf_token %}
+
+<div class="container">
+<table class="table table-bordered table-striped table-hover">	
+<tr>
+<th>author</th>
+<th>title</th>
+<th>text</th>
+<th>created_date</th>
+<th>published_date</th>
+</tr>
+<tr>  
+	{% for x in data %}
+    <td>
+    <a href="{% url 'post_view' %}">
+    <span class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"></span>
+    </a> 
+        {{x.author}}</td>
+    <td>{{x.title}}</td>
+    <td>{{x.text}}</td>
+    <td>{{x.created_date}}</td>
+    <td>{{x.published_date}}</td>
+</tr>
+    {% endfor %}
+</table>
+</div>
+<div class="block" align="center">
+    <a href="">
+    <button type="submit" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-share-alt"></span> Back
+    </button></a> 
+   
+	<button type="submit" class="btn btn-default btn-sm" onclick="window.print()"> 
+	<span class="glyphicon glyphicon-print"></span></button>
+</div>
+
+</form>
+<div class="container">
+  <!-- Trigger the modal with a button -->
+{% endblock %}

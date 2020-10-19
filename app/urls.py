@@ -12,4 +12,6 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('post/new/', views.post_new, name='post_new'),
     path('post/new1/', views.post_new, name='post_new1'),
+    path('/post_view/', views.post_view, name='post_view'),
+
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

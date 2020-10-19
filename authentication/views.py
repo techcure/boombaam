@@ -8,17 +8,6 @@ from django.contrib.auth.models import User
 from django.forms.utils import ErrorList
 from django.http import HttpResponse
 from .forms import LoginForm, SignUpForm
-from .forms import UserForm
-
-
-def user_view(request):
-    queryset = User.objects.all()
-    #queryset = Student.objects.get(id=1)
-    context = {}
-    context["data"] = queryset
-    # import pdb;pdb.set_trace()
-    fom = UserForm()
-    return render(request, "tables.html", context)
 
 def login_view(request):
     form = LoginForm(request.POST or None)

@@ -6,9 +6,19 @@ from django.http import HttpResponse
 from django import template
 from django.shortcuts import render
 from .forms import PostForm
+from .forms import PostViewForm
 from .models import Post
 
 from django.contrib import messages
+
+def post_view(request):
+    queryset = Post.objects.all()
+    context = {'data':queryset}
+    #context["data"] = queryset
+    # import pdb;pdb.set_trace()
+    fom = PostViewForm()
+    return render(request, "layouts/post_view.html", context)
+
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
@@ -24,7 +34,9 @@ def post_new(request):
             form = PostForm()
     # import pdb; pdb.set_trace()
     dat= "gulab"
-    return render(request, 'layouts/post_edit.html', {'form':form})
+    queryset = Post.objects.all()
+    context = {'data':queryset, 'form':form}
+    return render(request, 'layouts/post_edit.html', context)
 
 @login_required(login_url="/login/")
 def index(request):
