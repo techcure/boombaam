@@ -1,25 +1,8 @@
-# byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-
-# tests and coverage
-*.pytest_cache
-.coverage
-
-# database & logs
-*.db
-*.sqlite3
-*.log
-
-# venv
+*.pyc
+*~
+/.vscode
+__pycache__
 env
-venv
- 
-# other
+db.sqlite3
+/static
 .DS_Store
-
-# javascript
-package-lock.json
-
-staticfiles/*
-!staticfiles/.gitkeep 
