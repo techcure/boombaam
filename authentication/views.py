@@ -8,7 +8,9 @@ from django.contrib.auth.models import User
 from django.forms.utils import ErrorList
 from django.http import HttpResponse
 from .forms import LoginForm, SignUpForm
+from django.contrib.auth.decorators import login_required
 
+#@login_required
 def login_view(request):
     form = LoginForm(request.POST or None)
 

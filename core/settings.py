@@ -4,6 +4,7 @@ from decouple import config
 from unipath import Path
 import dj_database_url
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = Path(__file__).parent
@@ -16,8 +17,13 @@ DEBUG = config('DEBUG', default=False)
 
 # load production server from .env
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1')]
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 # Application definition
+LOGIN_URL = '../'
+LOGIN_REDIRECT_URL = '../'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = "False"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -99,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Calcutta'
 
 USE_I18N = True
 
@@ -118,7 +124,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media/')
 MEDIA_URL= "/media/"
-
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (

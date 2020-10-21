@@ -15,7 +15,7 @@ Reinitialized existing Git repository in C:/Users/me/Projects/Oat/.git/
 (env) PS C:\Users\me\projects\Oat> git commit -m "added"
 On branch master
 Your branch is ahead of 'origin/master' by 2 commits.
-  (use "git push" to publish your local commits)
+  (use "git push" to publish your local commits) 
 
 nothing to commit, working tree clean
 (env) PS C:\Users\me\projects\Oat> git  status

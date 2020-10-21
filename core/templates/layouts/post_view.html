@@ -1,51 +1,136 @@
 {% extends "layouts/base.html" %}
-
 {% load static %}
 
-
-
 {% block content %}
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
 <form action="{% url 'post_view' %}">
-	<h4 align="center">----------- User's Post ------------</h4>
-
-  {% csrf_token %}
-
-<div class="container">
-<table class="table table-bordered table-striped table-hover">	
+    <h4 align="center">-----------_-_------------</h4>
+    {% csrf_token %}
+    <div class="row alert" >
+    <div class="col-md-12">
+<div class="wrapper"></div>
+<div class="vertical-line"></div>
+    <section class="widget">
+        <h4>User's <span class="fw-semi-bold">Post</span></h4>
+        
+        <div class="widget-controls">
+            <input id="myInput" type="text" placeholder="Search..">
+        <a href="#"><i class="glyphicon glyphicon-cog"></i></a>
+        <a data-widgster="close" href="" data-dismiss="alert">
+        <i class="glyphicon glyphicon-remove"></i></a>
+        </div>
+</header>
+<table class="table table-striped" id="table1">	
+<thead>
 <tr>
-<th>author</th>
-<th>title</th>
-<th>text</th>
-<th>created_date</th>
-<th>published_date</th>
+<th class="hidden-xs">#</th>
+<th class="hidden-xs" onclick="sortTable(0)">author <b></b><i class="fa fa-fw fa-sort"></i></th>
+<th class="hidden-xs" onclick="sortTable(1)">title</th>
+<th class="hidden-xs" onclick="sortTable(2)">text</th>
+<th class="hidden-xs" onclick="sortTable(3)">picture</th>
+<th class="hidden-xs" onclick="sortTable(4)">created_date</th>
+<th class="hidden-xs" onclick="sortTable(5)">published_date</th>
 </tr>
+</thead>
+<tbody id="myTable">
 <tr>  
 	{% for x in data %}
-    <td>
-    <a href="{% url 'post_view' %}">
-    <span class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"></span>
-    </a> 
-        {{x.author}}</td>
+    <td>{{x.id}}</td>
+    <td>{{x.author}}</td>
     <td>{{x.title}}</td>
-    <td>{{x.text}}</td>
+    <td>{{x.text}}</td> 
+    <td class="zoom"> <img src="{{x.picture.url}}" border=3 height="" width="40" alt="" class="img-rounded">
+    </img></td>
     <td>{{x.created_date}}</td>
     <td>{{x.published_date}}</td>
+    <td><a href="{% url 'delete_post_view' x.id %}"><span class="glyphicon glyphicon-trash"></span></a></td>
 </tr>
     {% endfor %}
+</tbody>
 </table>
 </div>
+</section>
+</div>
 <div class="block" align="center">
-    <a href="">
-    <button type="submit" class="btn btn-default btn-sm">
-    <span class="glyphicon glyphicon-share-alt"></span> Back
-    </button></a> 
-   
 	<button type="submit" class="btn btn-default btn-sm" onclick="window.print()"> 
 	<span class="glyphicon glyphicon-print"></span></button>
 </div>
+        <script> 
+            // JavaScript program to illustrate 
+            // Table sort for both columns and both directions. 
+            function sortTable(n) { 
+                var table; 
+                table = document.getElementById("table1"); 
+                var rows, i, x, y, count = 0; 
+                var switching = true; 
 
+                // Order is set as ascending 
+                var direction = "ascending"; 
+
+                // Run loop until no switching is needed 
+                while (switching) { 
+                    switching = false; 
+                    var rows = table.rows; 
+
+                    //Loop to go through all rows 
+                    for (i = 1; i < (rows.length - 1); i++) { 
+                        var Switch = false; 
+
+                        // Fetch 2 elements that need to be compared 
+                        x = rows[i].getElementsByTagName("TD")[n]; 
+                        y = rows[i + 1].getElementsByTagName("TD")[n]; 
+
+                        // Check the direction of order 
+                        if (direction == "ascending") { 
+
+                            // Check if 2 rows need to be switched 
+                            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) 
+                                { 
+                                // If yes, mark Switch as needed and break loop 
+                                Switch = true; 
+                                break; 
+                            } 
+                        } else if (direction == "descending") { 
+
+                            // Check direction 
+                            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) 
+                                { 
+                                // If yes, mark Switch as needed and break loop 
+                                Switch = true; 
+                                break; 
+                            } 
+                        } 
+                    } 
+                    if (Switch) { 
+                        // Function to switch rows and mark switch as completed 
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); 
+                        switching = true; 
+
+                        // Increase count for each switch 
+                        count++; 
+                    } else { 
+                        // Run while loop again for descending order 
+                        if (count == 0 && direction == "ascending") { 
+                            direction = "descending"; 
+                            switching = true; 
+                        } 
+                    } 
+                } 
+            } 
+        </script> 
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 </form>
-<div class="container">
-  <!-- Trigger the modal with a button -->
 {% endblock %}

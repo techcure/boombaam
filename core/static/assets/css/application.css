@@ -1,7 +1,4 @@
-
 }
-
-
 ul {
     margin: 0 0 9px;
     color: chartreuse;
@@ -1448,12 +1445,12 @@ textarea {
 }
 
 a {
-  color: #ff0099;
+  color: #46ff18;
   text-decoration: none;
 }
 
 a:hover, a:focus {
-  color: #1d2b2b;
+  color: #ff0099;
   text-decoration: underline;
 }
 
@@ -19612,7 +19609,7 @@ body {
   padding-bottom: 100px;
   background-color: #050d15 20%;
   background-image: url(../img/bg-pattern.svg), radial-gradient(farthest-side ellipse at 10% 0, #414e60 20%, #94a3b1);
-background-image: url(../img/bg-pattern.svg), -webkit-radial-gradient(10% 0, farthest-side ellipse, #148868 20%, #06061d);
+background-image: url(../img/bg-pattern.svg), -webkit-radial-gradient(10% 0, farthest-side ellipse, #148868 20%, #4e0619);
   background-image: url(../img/bg-pattern.svg), -moz-radial-gradient(10% 0, farthest-side ellipse, #414e60 20%, #94a3b1);
   background-size: cover;
   background-attachment: fixed, fixed;
@@ -19662,6 +19659,7 @@ ol ul {
 ul, ol {
   list-style: none;
   padding: 0;
+  
 }
 
 iframe {
@@ -21100,6 +21098,7 @@ a.text-gray-lighter:focus {
   background: rgba(51, 51, 51, 0.425);
   margin-bottom: 30px;
   position: relative;
+  font-family: system-ui;
 }
 
 .widget.normal {
@@ -21547,7 +21546,7 @@ a.text-gray-lighter:focus {
 /**          SETTINGS             **/
 /**********************************/
 .settings-popover {
-  background: rgba(51, 51, 51, 0.85);
+  background: rgb(28 54 62 / 85%);
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 3px !important;
@@ -23017,7 +23016,7 @@ table.table thead .sorting_desc_disabled {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 30px;
-  background: #4e85bd;
+  background: #16634deb;
   text-align: center;
   padding-top: 10px;
 }
@@ -23420,4 +23419,29 @@ input, select, textarea{
     color: #000000;
     border: 2px solid #ccc;
     border-radius: 4px;
+}
+<style>
+* {
+  box-sizing: ;
+}
+
+.zoom {
+  padding: 50px;
+  transition: transform .3s;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+  margin:auto
+}
+</style>
+
+.messages1{
+
+  color: red;
 }

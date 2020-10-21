@@ -2,7 +2,7 @@ asgiref
 autopep8
 Django==2.1.*
 pycodestyle
-pytz
+pytz 
 sqlparse
 Unipath
 dj-database-url

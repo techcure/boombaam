@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint ."
   },
-  "engines": {
+  "engines": { 
     "node": "8.11.3"
   },
   "devDependencies": {
